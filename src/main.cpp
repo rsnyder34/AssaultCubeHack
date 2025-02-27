@@ -16,7 +16,8 @@ bool __stdcall hook(HDC hdc)
 		if (!imgui::init())
 		{
 			error("ImGui initialization failed");
-			exit(-1);
+			system("pause");
+			exit(-4);
 		}
 		init = true;
 	}
@@ -49,12 +50,14 @@ void __stdcall MainThread(HMODULE hMod)
 	if (!hOpenGL)
 	{
 		error("Failed to get handle to opengl32.dll");
+		system("pause");
 		exit(-1);
 	}
 	tarFunc = GetProcAddress(hOpenGL, "wglSwapBuffers");
 	if (!tarFunc)
 	{
 		error("Failed to get address of wglSwapBuffers");
+		system("pause");
 		exit(-2);
 	}
 	//Save the old bytes for exit
@@ -68,6 +71,7 @@ void __stdcall MainThread(HMODULE hMod)
 	if (!mem::TrampHook32((char*)tarFunc, (char*)hook, 5, (void**)&oSwap))
 	{
 		error("Failed to hook swap buffers");
+		system("pause");
 		exit(-3);
 	}
 
