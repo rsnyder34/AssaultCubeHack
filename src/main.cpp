@@ -82,6 +82,7 @@ void __stdcall MainThread(HMODULE hMod)
 	}
 	//patching memory
 	mem::Patch((char*)tarFunc, oldBytes, 5);
+	delete game;
 	fclose(f);
 	FreeConsole();
 	FreeLibraryAndExitThread(hMod, 0);
