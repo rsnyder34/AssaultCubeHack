@@ -1,0 +1,1 @@
+Hooks the SwapBuffers function from the OpenGL library which is used to render graphics for certain programs. I used ImGUI to render the graphics and a lot of research went into the function hooking for x86 architecture. 
