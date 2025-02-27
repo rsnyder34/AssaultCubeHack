@@ -20,7 +20,6 @@ Game::~Game()
 {
 	delete localPlayer;
 	delete entList;
-	delete this;
 }
 
 float math::magnitude(Vec2 v1, Vec2 v2)
